@@ -234,6 +234,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/04/2017-11-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/11/04/2017-11-04/" itemprop="url">HW7 - Leetcode 179 Largest Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:02:09+08:00">
+                2017-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a list of non negative integers, arrange them such that they form the largest number.</p>
+<p>For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.</p>
+<p>Note: The result may be very large, so you need to return a string instead of an integer.</p>
+<p>直接转换成字符串比较大小即可解决问题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1+s2&gt;s2+s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/25/2017-10-25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,7 +1156,7 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
