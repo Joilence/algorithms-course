@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
+<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. Examples: 12345Given &amp;quot;abcabcbb&amp;quot;, the answer is &amp;quot;abc&amp;quot;, which the length is 3.Given &amp;quot;bbbbb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HW7 - Leetcode 179 Largest Number">
-<meta property="og:url" content="joilence.github.io/algorithms-course/2017/11/04/2017-11-04/index.html">
+<meta property="og:title" content="HW8 - Leetcode 3 Longest Substring Without Repeating Characters">
+<meta property="og:url" content="joilence.github.io/algorithms-course/2017/11/11/2017-11-11/index.html">
 <meta property="og:site_name" content="Jonathan&#39;s Alogrithms">
-<meta property="og:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
-<meta property="og:updated_time" content="2017-11-14T13:31:36.923Z">
+<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. Examples: 12345Given &amp;quot;abcabcbb&amp;quot;, the answer is &amp;quot;abc&amp;quot;, which the length is 3.Given &amp;quot;bbbbb">
+<meta property="og:updated_time" content="2017-11-14T14:19:11.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HW7 - Leetcode 179 Largest Number">
-<meta name="twitter:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
+<meta name="twitter:title" content="HW8 - Leetcode 3 Longest Substring Without Repeating Characters">
+<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. Examples: 12345Given &amp;quot;abcabcbb&amp;quot;, the answer is &amp;quot;abc&amp;quot;, which the length is 3.Given &amp;quot;bbbbb">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/11/04/2017-11-04/"/>
+  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/11/11/2017-11-11/"/>
 
 
 
 
 
-  <title>HW7 - Leetcode 179 Largest Number | Jonathan's Alogrithms</title>
+  <title>HW8 - Leetcode 3 Longest Substring Without Repeating Characters | Jonathan's Alogrithms</title>
   
 
 
@@ -237,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/04/2017-11-04/">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/11/2017-11-11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonathan Yang">
@@ -254,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HW7 - Leetcode 179 Largest Number</h1>
+          <h1 class="post-title" itemprop="name headline">HW8 - Leetcode 3 Longest Substring Without Repeating Characters</h1>
         
 
         <div class="post-meta">
@@ -266,8 +266,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:11:55+08:00">
-                2017-11-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-11T20:32:10+08:00">
+                2017-11-11
               </time>
             
 
@@ -304,11 +304,13 @@
       
 
       
-        <p>Given a list of non negative integers, arrange them such that they form the largest number.</p>
-<p>For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.</p>
-<p>Note: The result may be very large, so you need to return a string instead of an integer.</p>
-<p>直接转换成字符串比较大小即可解决问题。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1 + s2 &gt; s2 + s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        <p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p><strong>Examples:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.</div><div class="line"></div><div class="line">Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.</div><div class="line"></div><div class="line">Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</div></pre></td></tr></table></figure>
+<p>本来想从两边往中间数，遇见重复字母，则选取上次重复字母的下一个标签为 head 或者 tail，如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> head = <span class="number">0</span>, tail = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">        <span class="keyword">if</span> (seen[s[left] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            head = seen[s[left] - <span class="string">'a'</span>] + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (seen[s[right] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            tail = seen[s[right] - <span class="string">'a'</span>] - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        seen[s[left]] += left;</div><div class="line">        seen[s[right]] += right;</div><div class="line">        left += <span class="number">1</span>;</div><div class="line">        right -= <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> tail - head + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是发现重复字母的时候，head 和 tail 应该往左还是往右需要标记，比较难实现，所以只能单向做，最后如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">int</span> length = <span class="number">0</span>, start = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">        start = max(seen[s[i] - <span class="number">0</span>] + <span class="number">1</span>, start);    <span class="comment">// automatically takes care of -1 case</span></div><div class="line">        seen[s[i] - <span class="number">0</span>] = i;</div><div class="line">        length = max(length, i - start + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -333,8 +335,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-course/2017/10/25/2017-10-25/" rel="next" title="HW6 - LeetCode 19 Remove Nth Node From End of List">
-                <i class="fa fa-chevron-left"></i> HW6 - LeetCode 19 Remove Nth Node From End of List
+              <a href="/algorithms-course/2017/11/04/2017-11-04/" rel="next" title="HW7 - Leetcode 179 Largest Number">
+                <i class="fa fa-chevron-left"></i> HW7 - Leetcode 179 Largest Number
               </a>
             
           </div>
@@ -342,10 +344,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithms-course/2017/11/11/2017-11-11/" rel="prev" title="HW8 - Leetcode 3 Longest Substring Without Repeating Characters">
-                HW8 - Leetcode 3 Longest Substring Without Repeating Characters <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

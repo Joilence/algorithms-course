@@ -234,6 +234,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/11/2017-11-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/11/11/2017-11-11/" itemprop="url">HW8 - Leetcode 3 Longest Substring Without Repeating Characters</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-11T20:32:10+08:00">
+                2017-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p><strong>Examples:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.</div><div class="line"></div><div class="line">Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.</div><div class="line"></div><div class="line">Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</div></pre></td></tr></table></figure>
+<p>本来想从两边往中间数，遇见重复字母，则选取上次重复字母的下一个标签为 head 或者 tail，如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> head = <span class="number">0</span>, tail = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">        <span class="keyword">if</span> (seen[s[left] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            head = seen[s[left] - <span class="string">'a'</span>] + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (seen[s[right] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            tail = seen[s[right] - <span class="string">'a'</span>] - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        seen[s[left]] += left;</div><div class="line">        seen[s[right]] += right;</div><div class="line">        left += <span class="number">1</span>;</div><div class="line">        right -= <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> tail - head + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是发现重复字母的时候，head 和 tail 应该往左还是往右需要标记，比较难实现，所以只能单向做，最后如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">int</span> length = <span class="number">0</span>, start = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">        start = max(seen[s[i] - <span class="number">0</span>] + <span class="number">1</span>, start);    <span class="comment">// automatically takes care of -1 case</span></div><div class="line">        seen[s[i] - <span class="number">0</span>] = i;</div><div class="line">        length = max(length, i - start + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/04/2017-11-04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +391,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:02:09+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:11:55+08:00">
                 2017-11-04
               </time>
             
@@ -1156,7 +1282,7 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
