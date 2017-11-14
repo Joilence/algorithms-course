@@ -101,7 +101,7 @@
 <meta property="og:url" content="joilence.github.io/algorithms-course/2017/11/04/2017-11-04/index.html">
 <meta property="og:site_name" content="Jonathan&#39;s Alogrithms">
 <meta property="og:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
-<meta property="og:updated_time" content="2017-11-14T07:19:49.987Z">
+<meta property="og:updated_time" content="2017-11-14T07:24:12.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HW7 - Leetcode 179 Largest Number">
 <meta name="twitter:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -264,7 +264,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:02:09+08:00">
                 2017-11-04
@@ -308,7 +308,7 @@
 <p>For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.</p>
 <p>Note: The result may be very large, so you need to return a string instead of an integer.</p>
 <p>直接转换成字符串比较大小即可解决问题。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1+s2&gt;s2+s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1 + s2 &gt; s2 + s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -409,7 +409,7 @@
               <a href="/algorithms-course/archives">
             
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -464,7 +464,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
