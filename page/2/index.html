@@ -95,16 +95,12 @@
 
 
 
-<meta name="description" content="Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:  The root is the maximum number in the array. The left subtree is the maximum tree constructed fr">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HW1 - LeetCode 654 Maximum Binary Tree">
-<meta property="og:url" content="joilence.github.io/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jonathan&#39;s Alogrithms">
+<meta property="og:url" content="joilence.github.io/algorithms-course/page/2/index.html">
 <meta property="og:site_name" content="Jonathan&#39;s Alogrithms">
-<meta property="og:description" content="Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:  The root is the maximum number in the array. The left subtree is the maximum tree constructed fr">
-<meta property="og:updated_time" content="2017-10-17T03:51:20.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HW1 - LeetCode 654 Maximum Binary Tree">
-<meta name="twitter:description" content="Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:  The root is the maximum number in the array. The left subtree is the maximum tree constructed fr">
+<meta name="twitter:title" content="Jonathan&#39;s Alogrithms">
 
 
 
@@ -134,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/"/>
+  <link rel="canonical" href="joilence.github.io/algorithms-course/page/2/"/>
 
 
 
 
 
-  <title>HW1 - LeetCode 654 Maximum Binary Tree | Jonathan's Alogrithms</title>
+  <title>Jonathan's Alogrithms</title>
   
 
 
@@ -159,7 +155,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,9 +219,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -254,7 +251,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HW1 - LeetCode 654 Maximum Binary Tree</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/" itemprop="url">HW1 - LeetCode 654 Maximum Binary Tree</a></h1>
         
 
         <div class="post-meta">
@@ -304,7 +303,9 @@
       
 
       
-        <p>Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:</p>
+        
+          
+            <p>Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:</p>
 <ol>
 <li>The root is the maximum number in the array.</li>
 <li>The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.</li>
@@ -323,6 +324,8 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="function">TreeNode* <span class="title">constructMaximumBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (nums.size() == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(nums[<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; max = findMax(nums);</div><div class="line">    TreeNode* root = <span class="keyword">new</span> TreeNode(max[<span class="number">0</span>]);</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left = sliceVector(nums, <span class="number">0</span>, max[<span class="number">1</span>]);</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right = sliceVector(nums, max[<span class="number">1</span>] + <span class="number">1</span>, nums.size());</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (left.size() != <span class="number">0</span>)</div><div class="line">        root-&gt;left = constructMaximumBinaryTree(left);</div><div class="line">    <span class="keyword">if</span> (right.size() != <span class="number">0</span>)</div><div class="line">        root-&gt;right = constructMaximumBinaryTree(right);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> root;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findMax(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">    <span class="keyword">int</span> maxVal = nums[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> maxIdx = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (maxVal &lt; nums[i]) &#123;</div><div class="line">            maxVal = nums[i];</div><div class="line">            maxIdx = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">    v.push_back(maxVal);</div><div class="line">    v.push_back(maxIdx);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sliceVector(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> begin, <span class="keyword">int</span> end) &#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (begin &gt;= nums.size()) &#123;</div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; end; ++i) &#123;</div><div class="line">        v.push_back(nums[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>可能最近得多看点代码回忆一下 C++。</p>
 
+          
+        
       
     </div>
     
@@ -339,28 +342,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithms-course/2017/09/23/leetcode-537-complex-number-multiplication/" rel="prev" title="HW2 - Leetcode 537 Complex Number Multiplication">
-                HW2 - Leetcode 537 Complex Number Multiplication <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -370,11 +357,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/algorithms-course/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/algorithms-course/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -382,10 +372,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -570,10 +556,6 @@
 
 
   
-  <script type="text/javascript" src="/algorithms-course/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/algorithms-course/js/src/post-details.js?v=5.1.2"></script>
-
-
 
   
 

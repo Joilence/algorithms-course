@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -220,6 +220,260 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/03/2017-12-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/12/03/2017-12-03/" itemprop="url">HW11 - Leetcode 503 Next Greater Element II</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T10:46:31+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn’t exist, output -1 for this number.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Input: [1,2,1]</div><div class="line">Output: [2,-1,2]</div><div class="line">Explanation: The first 1&apos;s next greater number is 2; </div><div class="line">The number 2 can&apos;t find next greater number; </div><div class="line">The second 1&apos;s next greater number needs to search circularly, which is also 2.</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong> The length of given array won’t exceed 10000.</p>
+<p>一个数和它的下一个大数之间的所有数，与该数共享同一个下一个大数，所以可以用 stack 来解决。</p>
+<p>先建立一个 nge 数组储存每个数的下一个最大数，再建立一个 index stack 储存 index，栈顶数的下一个最大数可能是它之前多个数的下一个最大数，用 while 不断 pop，取尽比当前枚举数小的数。</p>
+<p>由于要循环，所以至少要对数组遍历两次，以保证尾部较小的数找到其下一个最大数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nextGreaterElements(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nge(nums.size(), <span class="number">-1</span>);</div><div class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; index;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() * <span class="number">2</span>; ++i) &#123;</div><div class="line">            <span class="keyword">int</span> num = nums[i % nums.size()];</div><div class="line">            <span class="keyword">while</span> (!index.empty() &amp;&amp; nums[index.top()] &lt; num) &#123;</div><div class="line">                nge[index.top()] = num;</div><div class="line">                index.pop();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (i &lt; nums.size()) index.push(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> nge;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/26/2017-11-26/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/11/26/2017-11-26/" itemprop="url">HW10 - Leetcode 646 Maximum Length of Pair Chain</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-26T23:30:11+08:00">
+                2017-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>You are given <code>n</code> pairs of numbers. In every pair, the first number is always smaller than the second number.</p>
+<p>Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b &lt; c</code>. Chain of pairs can be formed in this fashion.</p>
+<p>Given a set of pairs, find the length longest chain which can be formed. You needn’t use up all the given pairs. You can select pairs in any order.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: [[1,2], [2,3], [3,4]]</div><div class="line">Output: 2</div><div class="line">Explanation: The longest chain is [1,2] -&gt; [3,4]</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong><br>The number of given pairs will be in the range [1, 1000].</p>
+<p>先将 pairs 中每一个 pair 按照第二个数大小递增排序。然后用两个 index，一个 index 指向当前尾部，一个 index 指向当前遍历位置，对 pairs 进行遍历，选取合适的组成 chain 即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findLongestChain</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; pairs)</span> </span>&#123;</div><div class="line">        sort(pairs.begin(), pairs.end(), [](<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; b) &#123; <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>]; &#125; );</div><div class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; j &lt; pairs.size(); ++j) &#123;</div><div class="line">            <span class="keyword">if</span> (j == <span class="number">0</span> || pairs[i][<span class="number">1</span>] &lt; pairs[j][<span class="number">0</span>]) &#123;</div><div class="line">                ++count;</div><div class="line">                i = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -263,7 +517,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-18T21:19:02+08:00">
                 2017-11-18
@@ -387,7 +641,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-11T20:32:10+08:00">
                 2017-11-11
@@ -513,7 +767,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:11:55+08:00">
                 2017-11-04
@@ -637,7 +891,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T12:02:09+08:00">
                 2017-10-25
@@ -762,7 +1016,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-22T23:02:09+08:00">
                 2017-10-22
@@ -886,7 +1140,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-14T10:02:09+08:00">
                 2017-10-14
@@ -1015,7 +1269,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:23:09+08:00">
                 2017-10-08
@@ -1138,7 +1392,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T15:35:09+08:00">
                 2017-09-23
@@ -1224,146 +1478,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/" itemprop="url">HW1 - LeetCode 654 Maximum Binary Tree</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-17T10:23:09+08:00">
-                2017-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:</p>
-<ol>
-<li>The root is the maximum number in the array.</li>
-<li>The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.</li>
-<li>The right subtree is the maximum tree  constructed from right part subarray divided by the maximum number.</li>
-</ol>
-<p>Construct the maximum tree by the given array and output the root node of this tree.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Input: [3,2,1,6,0,5]</div><div class="line">Output: return the tree root node representing the following tree:</div><div class="line"></div><div class="line">      6</div><div class="line">    /   \</div><div class="line">   3     5</div><div class="line">    \    / </div><div class="line">     2  0   </div><div class="line">       \</div><div class="line">        1</div></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ol>
-<li>The size of the given array will be in the range [1,1000].</li>
-</ol>
-<p>这道题最朴素的想法就是：找到当前 vector 中的最大值，构建局部根节点，在分别用最大值两边的部分构建 vector，递归调用构建树，直至 <code>vector.size() == 1</code> 为止。</p>
-<p>太久没写过 C++，忘记了好多语法，尤其是最近用惯了 Python 和 Octave，总喜欢用一个函数返回多个值。</p>
-<p>代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="function">TreeNode* <span class="title">constructMaximumBinaryTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (nums.size() == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(nums[<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; max = findMax(nums);</div><div class="line">    TreeNode* root = <span class="keyword">new</span> TreeNode(max[<span class="number">0</span>]);</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left = sliceVector(nums, <span class="number">0</span>, max[<span class="number">1</span>]);</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right = sliceVector(nums, max[<span class="number">1</span>] + <span class="number">1</span>, nums.size());</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (left.size() != <span class="number">0</span>)</div><div class="line">        root-&gt;left = constructMaximumBinaryTree(left);</div><div class="line">    <span class="keyword">if</span> (right.size() != <span class="number">0</span>)</div><div class="line">        root-&gt;right = constructMaximumBinaryTree(right);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> root;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findMax(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">    <span class="keyword">int</span> maxVal = nums[<span class="number">0</span>];</div><div class="line">    <span class="keyword">int</span> maxIdx = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (maxVal &lt; nums[i]) &#123;</div><div class="line">            maxVal = nums[i];</div><div class="line">            maxIdx = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">    v.push_back(maxVal);</div><div class="line">    v.push_back(maxIdx);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sliceVector(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> begin, <span class="keyword">int</span> end) &#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (begin &gt;= nums.size()) &#123;</div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt; end; ++i) &#123;</div><div class="line">        v.push_back(nums[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可能最近得多看点代码回忆一下 C++。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/algorithms-course/page/2/">2</a><a class="extend next" rel="next" href="/algorithms-course/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1406,8 +1527,8 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1462,7 +1583,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 

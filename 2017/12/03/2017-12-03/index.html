@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="题意Given two strings representing two complex numbers. You need to return a string representing their multiplication. Note i2 = -1 according to the definition. Example 1: 123Input: &amp;quot;1+1i&amp;quot;, &amp;q">
+<meta name="description" content="Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first gre">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HW2 - Leetcode 537 Complex Number Multiplication">
-<meta property="og:url" content="joilence.github.io/algorithms-course/2017/09/23/leetcode-537-complex-number-multiplication/index.html">
+<meta property="og:title" content="HW11 - Leetcode 503 Next Greater Element II">
+<meta property="og:url" content="joilence.github.io/algorithms-course/2017/12/03/2017-12-03/index.html">
 <meta property="og:site_name" content="Jonathan&#39;s Alogrithms">
-<meta property="og:description" content="题意Given two strings representing two complex numbers. You need to return a string representing their multiplication. Note i2 = -1 according to the definition. Example 1: 123Input: &amp;quot;1+1i&amp;quot;, &amp;q">
-<meta property="og:updated_time" content="2017-10-17T03:50:42.330Z">
+<meta property="og:description" content="Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first gre">
+<meta property="og:updated_time" content="2017-12-03T02:53:29.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HW2 - Leetcode 537 Complex Number Multiplication">
-<meta name="twitter:description" content="题意Given two strings representing two complex numbers. You need to return a string representing their multiplication. Note i2 = -1 according to the definition. Example 1: 123Input: &amp;quot;1+1i&amp;quot;, &amp;q">
+<meta name="twitter:title" content="HW11 - Leetcode 503 Next Greater Element II">
+<meta name="twitter:description" content="Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first gre">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/09/23/leetcode-537-complex-number-multiplication/"/>
+  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/12/03/2017-12-03/"/>
 
 
 
 
 
-  <title>HW2 - Leetcode 537 Complex Number Multiplication | Jonathan's Alogrithms</title>
+  <title>HW11 - Leetcode 503 Next Greater Element II | Jonathan's Alogrithms</title>
   
 
 
@@ -237,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/09/23/leetcode-537-complex-number-multiplication/">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/03/2017-12-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonathan Yang">
@@ -254,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HW2 - Leetcode 537 Complex Number Multiplication</h1>
+          <h1 class="post-title" itemprop="name headline">HW11 - Leetcode 503 Next Greater Element II</h1>
         
 
         <div class="post-meta">
@@ -266,8 +266,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T15:35:09+08:00">
-                2017-09-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T10:46:31+08:00">
+                2017-12-03
               </time>
             
 
@@ -304,15 +304,14 @@
       
 
       
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>Given two strings representing two complex numbers.</p>
-<p>You need to return a string representing their multiplication. Note i2 = -1 according to the definition.</p>
+        <p>Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn’t exist, output -1 for this number.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: &quot;1+1i&quot;, &quot;1+1i&quot;</div><div class="line">Output: &quot;0+2i&quot;</div><div class="line">Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.</div></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Input: &quot;1+-1i&quot;, &quot;1+-1i&quot;</div><div class="line">Output: &quot;0+-2i&quot;</div><div class="line">Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.</div></pre></td></tr></table></figure>
-<p><strong>Note:</strong><br>The input strings will not have extra blank.<br>The input strings will be given in the form of a+bi, where the integer a and b will both belong to the range of [-100, 100]. And the output should be also in this form.</p>
-<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>这个题的要点主要在如何提取出复数的实部和虚部，其余的计算都很简单。本来想先写一个把数字转换为 String 的函数，用到了 stringstream，才想起 stringstream 本身一定程度的 parsing 能力似乎就够用了，恰好复数字符串是比较规则的，于是 stringstream 正好派上用场。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">complexNumberMultiply</span><span class="params">(<span class="built_in">string</span> a, <span class="built_in">string</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> realA, realB, imagA, imagB;</div><div class="line">    stringstream ssA(a), ssB(b), ans;</div><div class="line">    <span class="keyword">char</span> tmp;</div><div class="line">    ssA &gt;&gt; realA &gt;&gt; tmp &gt;&gt; imagA;</div><div class="line">    ssB &gt;&gt; realB &gt;&gt; tmp &gt;&gt; imagB;</div><div class="line">    ans &lt;&lt; realA * realB - imagA * imagB &lt;&lt; <span class="string">"+"</span> </div><div class="line">        &lt;&lt; realA * imagB + realB * imagA &lt;&lt; <span class="string">"i"</span>;</div><div class="line">    <span class="keyword">return</span> ans.str();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Input: [1,2,1]</div><div class="line">Output: [2,-1,2]</div><div class="line">Explanation: The first 1&apos;s next greater number is 2; </div><div class="line">The number 2 can&apos;t find next greater number; </div><div class="line">The second 1&apos;s next greater number needs to search circularly, which is also 2.</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong> The length of given array won’t exceed 10000.</p>
+<p>一个数和它的下一个大数之间的所有数，与该数共享同一个下一个大数，所以可以用 stack 来解决。</p>
+<p>先建立一个 nge 数组储存每个数的下一个最大数，再建立一个 index stack 储存 index，栈顶数的下一个最大数可能是它之前多个数的下一个最大数，用 while 不断 pop，取尽比当前枚举数小的数。</p>
+<p>由于要循环，所以至少要对数组遍历两次，以保证尾部较小的数找到其下一个最大数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nextGreaterElements(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nge(nums.size(), <span class="number">-1</span>);</div><div class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; index;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() * <span class="number">2</span>; ++i) &#123;</div><div class="line">            <span class="keyword">int</span> num = nums[i % nums.size()];</div><div class="line">            <span class="keyword">while</span> (!index.empty() &amp;&amp; nums[index.top()] &lt; num) &#123;</div><div class="line">                nge[index.top()] = num;</div><div class="line">                index.pop();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (i &lt; nums.size()) index.push(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> nge;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -337,8 +336,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-course/2017/09/17/leetcode-654-maximum-binary-tree/" rel="next" title="HW1 - LeetCode 654 Maximum Binary Tree">
-                <i class="fa fa-chevron-left"></i> HW1 - LeetCode 654 Maximum Binary Tree
+              <a href="/algorithms-course/2017/11/26/2017-11-26/" rel="next" title="HW10 - Leetcode 646 Maximum Length of Pair Chain">
+                <i class="fa fa-chevron-left"></i> HW10 - Leetcode 646 Maximum Length of Pair Chain
               </a>
             
           </div>
@@ -346,10 +345,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithms-course/2017/10/08/2017-10-08/" rel="prev" title="HW3 - LeetCode 11 Container With Most Water">
-                HW3 - LeetCode 11 Container With Most Water <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -401,17 +396,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">Jonathan Yang</p>
@@ -454,22 +440,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
