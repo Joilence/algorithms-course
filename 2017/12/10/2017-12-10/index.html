@@ -95,16 +95,16 @@
 
 
 
-<meta name="description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
+<meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: 1234567[  &amp;quot;((()))&amp;quot;,  &amp;quot;(()())&amp;quot;,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HW7 - Leetcode 179 Largest Number">
-<meta property="og:url" content="joilence.github.io/algorithms-course/2017/11/04/2017-11-04/index.html">
+<meta property="og:title" content="Leetcode 22. Generate Parentheses">
+<meta property="og:url" content="joilence.github.io/algorithms-course/2017/12/10/2017-12-10/index.html">
 <meta property="og:site_name" content="Jonathan&#39;s Alogrithms">
-<meta property="og:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
-<meta property="og:updated_time" content="2017-11-14T13:31:36.923Z">
+<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: 1234567[  &amp;quot;((()))&amp;quot;,  &amp;quot;(()())&amp;quot;,">
+<meta property="og:updated_time" content="2017-12-10T06:02:33.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HW7 - Leetcode 179 Largest Number">
-<meta name="twitter:description" content="Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very lar">
+<meta name="twitter:title" content="Leetcode 22. Generate Parentheses">
+<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: 1234567[  &amp;quot;((()))&amp;quot;,  &amp;quot;(()())&amp;quot;,">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/11/04/2017-11-04/"/>
+  <link rel="canonical" href="joilence.github.io/algorithms-course/2017/12/10/2017-12-10/"/>
 
 
 
 
 
-  <title>HW7 - Leetcode 179 Largest Number | Jonathan's Alogrithms</title>
+  <title>Leetcode 22. Generate Parentheses | Jonathan's Alogrithms</title>
   
 
 
@@ -237,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/04/2017-11-04/">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonathan Yang">
@@ -254,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HW7 - Leetcode 179 Largest Number</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 22. Generate Parentheses</h1>
         
 
         <div class="post-meta">
@@ -266,8 +266,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:11:55+08:00">
-                2017-11-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
+                2017-12-10
               </time>
             
 
@@ -304,11 +304,12 @@
       
 
       
-        <p>Given a list of non negative integers, arrange them such that they form the largest number.</p>
-<p>For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.</p>
-<p>Note: The result may be very large, so you need to return a string instead of an integer.</p>
-<p>直接转换成字符串比较大小即可解决问题。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1 + s2 &gt; s2 + s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>For example, given n = 3, a solution set is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &quot;((()))&quot;,</div><div class="line">  &quot;(()())&quot;,</div><div class="line">  &quot;(())()&quot;,</div><div class="line">  &quot;()(())&quot;,</div><div class="line">  &quot;()()()&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>一个搜索问题，注意条件是（1）右括号数量不能多于左括号。（2）最后一个一定左括号，这样可以少搜一层。</p>
+<p>可以用递归或二叉树解决。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="built_in">string</span> val;</div><div class="line">    <span class="keyword">int</span> left;</div><div class="line">    <span class="keyword">int</span> right;</div><div class="line">    node(<span class="built_in">string</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        val = v;</div><div class="line">        left = l;</div><div class="line">        right = r;</div><div class="line">    &#125;;</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">        <span class="built_in">queue</span>&lt;node*&gt; q;</div><div class="line">        q.push(<span class="keyword">new</span> node(<span class="string">"("</span>, n - <span class="number">1</span>, n - <span class="number">1</span>));</div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            node* cur = q.front();</div><div class="line">            <span class="keyword">if</span> (cur-&gt;left == <span class="number">0</span> &amp;&amp; cur-&gt;right == <span class="number">0</span>) &#123;</div><div class="line">                ans.push_back(cur-&gt;val + <span class="string">")"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (cur-&gt;left != <span class="number">0</span>)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">"("</span>, cur-&gt;left - <span class="number">1</span>, cur-&gt;right));</div><div class="line">                <span class="keyword">if</span> (cur-&gt;right != <span class="number">0</span> &amp;&amp; cur-&gt;right &gt;= cur-&gt;left)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">")"</span>, cur-&gt;left, cur-&gt;right - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">delete</span> cur;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -333,8 +334,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/algorithms-course/2017/10/25/2017-10-25/" rel="next" title="HW6 - LeetCode 19 Remove Nth Node From End of List">
-                <i class="fa fa-chevron-left"></i> HW6 - LeetCode 19 Remove Nth Node From End of List
+              <a href="/algorithms-course/2017/12/03/2017-12-03/" rel="next" title="HW11 - Leetcode 503 Next Greater Element II">
+                <i class="fa fa-chevron-left"></i> HW11 - Leetcode 503 Next Greater Element II
               </a>
             
           </div>
@@ -342,10 +343,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/algorithms-course/2017/11/11/2017-11-11/" rel="prev" title="HW8 - Leetcode 3 Longest Substring Without Repeating Characters">
-                HW8 - Leetcode 3 Longest Substring Without Repeating Characters <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
