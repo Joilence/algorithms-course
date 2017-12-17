@@ -234,6 +234,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/08/2017-10-08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/10/08/2017-10-08/" itemprop="url">HW3 - LeetCode 11 Container With Most Water</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-08T10:23:09+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p>Note: You may not slant the container and n is at least 2.</p>
+<p>这道题的难点在于「宽度」和「高度」之间的取舍。如果单纯排列组合比较大小，时间复杂度为 O(n^2)，性能较差。<br>想要提升比较的效率，就需要尽可能的降低取舍的维度。如果从两边开始向中间靠拢，则为了补偿牺牲的「宽度」，一定要更高的「高度」，这样的条件过滤就会让比较次数少许多。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> water = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = height.size() - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">        <span class="keyword">int</span> h = min(height[left], height[right]);</div><div class="line">        water = max(water, (right - left) * h);</div><div class="line">        <span class="keyword">while</span> (height[left] &lt;= h &amp;&amp; left &lt; right) left++;</div><div class="line">        <span class="keyword">while</span> (height[right] &lt;= h &amp;&amp; left &lt; right) right--;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> water;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/09/23/leetcode-537-complex-number-multiplication/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -535,7 +658,7 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
