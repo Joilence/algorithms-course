@@ -234,6 +234,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/14/2017-10-14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/10/14/2017-10-14/" itemprop="url">HW4 - LeetCode 17 Letter Combinations of a Phone Number</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-14T10:02:09+08:00">
+                2017-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a digit string, return all possible letter combinations that the number could represent.</p>
+<p>A mapping of digit to letters is just like on the telephone buttons.</p>
+<p><strong>Note:</strong><br>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input:Digit string &quot;23&quot;</div><div class="line">Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</div></pre></td></tr></table></figure>
+<p>此题解题要素有二：1) 如何映射数字和字母；2) 如何将其排列组合。</p>
+<p>前者有两种方法，比较简单的是直接用 vector 存储，就可以形成映射。另外一种，就是可以利用 ASCII 码直接计算如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">getChars</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> char_num = <span class="number">3</span>;</div><div class="line">	<span class="keyword">char</span> start_char;</div><div class="line">	<span class="keyword">if</span> (<span class="number">2</span> &lt;= key &amp;&amp; key &lt;= <span class="number">6</span>) &#123;</div><div class="line">		start_char = <span class="string">'a'</span> + (key - <span class="number">2</span>) * <span class="number">3</span>;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (key == <span class="number">7</span>) &#123;</div><div class="line">		start_char = <span class="string">'a'</span> + (key - <span class="number">2</span>) * <span class="number">3</span>;</div><div class="line">		char_num = <span class="number">4</span>;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (key == <span class="number">8</span>) &#123;</div><div class="line">		start_char = <span class="string">'a'</span> + (key - <span class="number">2</span>) * <span class="number">3</span> + <span class="number">1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (key == <span class="number">9</span>) &#123;</div><div class="line">		start_char = <span class="string">'a'</span> + (key - <span class="number">2</span>) * <span class="number">3</span> + <span class="number">1</span>;</div><div class="line">		char_num = <span class="number">4</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">string</span> res = <span class="string">""</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; char_num; ++i) &#123;</div><div class="line">		<span class="built_in">string</span> += <span class="keyword">char</span>(start_char + <span class="number">1</span>)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于后者的解决，由于每三重循环的结果，如果还有下一个数字，就要根据之前的结果展开，所以可以暂存一个 vector 变量，根据上一次结果展开组合后，再存入作为本次的结果。</p>
+<p>最后实现如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits) &#123;</div><div class="line">    	<span class="keyword">if</span> (digits.empty()) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;();</div><div class="line"></div><div class="line">    	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res = &#123;<span class="string">""</span>&#125;;</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ref = &#123;<span class="string">""</span>, <span class="string">""</span>, <span class="string">"abc"</span>, <span class="string">"def"</span>, <span class="string">"ghi"</span>, <span class="string">"jkl"</span>, <span class="string">"mno"</span>, <span class="string">"pqrs"</span>, <span class="string">"tuv"</span>, <span class="string">"wxyz"</span>&#125;;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; digits.length(); ++i) &#123;</div><div class="line">			<span class="keyword">int</span> num = digits[i] - <span class="string">'0'</span>;</div><div class="line">			<span class="keyword">if</span> (num &lt; <span class="number">0</span> || num &gt; <span class="number">9</span>) <span class="keyword">break</span>;</div><div class="line"></div><div class="line">			<span class="built_in">string</span> candi = ref[num];</div><div class="line">			<span class="keyword">if</span> (candi.empty()) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">			<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tmp;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; candi.length(); ++j) &#123;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; res.size(); ++k) &#123;</div><div class="line">					tmp.push_back(res[k] + candi[j]);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			tmp.swap(res);</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">    	<span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/08/2017-10-08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -658,7 +787,7 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
