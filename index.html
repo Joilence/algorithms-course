@@ -234,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/24/2017-12-31/">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/31/2018-01-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonathan Yang">
@@ -253,7 +253,134 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/algorithms-course/2017/12/24/2017-12-31/" itemprop="url">Leetcode 513. Find Bottom Left Tree Value</a></h1>
+                <a class="post-title-link" href="/algorithms-course/2017/12/31/2018-01-03/" itemprop="url">Leetcode 540. Single Element in a Sorted Array</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-31T22:24:24+08:00">
+                2017-12-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a sorted array consisting of only integers where every element appears twice except for one element which appears once. Find this single element that appears only once.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [1,1,2,3,3,4,4,8,8]</div><div class="line">Output: 2</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: [3,3,7,7,10,11,11]</div><div class="line">Output: 10</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong> Your solution should run in O(log n) time and O(1) space.</p>
+<p>由于给定数组已经排序，所以可以使用二分查找，寻找与前后不相等、无重复的数即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNonDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> n = nums.size(), left = <span class="number">0</span>, right = n - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (mid % <span class="number">2</span> == <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (nums[mid] == nums[mid<span class="number">-1</span>]) right = mid - <span class="number">2</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == nums[mid+<span class="number">1</span>]) left = mid + <span class="number">2</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">return</span> nums[mid];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (nums[mid] == nums[mid<span class="number">-1</span>]) left = mid + <span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == nums[mid+<span class="number">1</span>]) right = mid - <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> nums[left];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/24/2017-12-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/12/24/2017-12-24/" itemprop="url">Leetcode 513. Find Bottom Left Tree Value</a></h1>
         
 
         <div class="post-meta">
@@ -313,131 +440,6 @@
 <p>Note: You may assume the tree (i.e., the given root node) is not NULL.</p>
 <p>最底左叶子一定在左子树下，所以只需要不停遍历左子树，跟踪当前深度值即可。使用 BFS，维护两个 Queue，一个 Queue 存储 Node，一个 Queue 存储当前对应的 Node 的深度。用一个外部变量存储当前搜索的深度，每当深度更新时，证明已经搜到当前最左叶子，更新 root 值即可。到达底部时，返回 root 的 value 即是题目想要的值。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findBottomLeftValue</span><span class="params">(TreeNode* root)</span> </span>&#123;</div><div class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</div><div class="line">        <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; depth;</div><div class="line">        </div><div class="line">        q.push(root);</div><div class="line">        depth.push(<span class="number">0</span>);</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> curDepth = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (q.size()) &#123;</div><div class="line">            TreeNode *r = q.front();</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">int</span> rDepth = depth.front();</div><div class="line">            depth.pop();</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (r-&gt;left) &#123;</div><div class="line">                q.push(r-&gt;left);</div><div class="line">                depth.push(rDepth + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (r-&gt;right)&#123;</div><div class="line">                q.push(r-&gt;right);</div><div class="line">                depth.push(rDepth + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="keyword">if</span> (rDepth &gt; curDepth)&#123;</div><div class="line">                curDepth = rDepth;</div><div class="line">                root = r;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> root-&gt;val;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/12/10/2017-12-10/" itemprop="url">Leetcode 22. Generate Parentheses</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
-                2017-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &quot;((()))&quot;,</div><div class="line">  &quot;(()())&quot;,</div><div class="line">  &quot;(())()&quot;,</div><div class="line">  &quot;()(())&quot;,</div><div class="line">  &quot;()()()&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>一个搜索问题，注意条件是（1）右括号数量不能多于左括号。（2）最后一个一定左括号，这样可以少搜一层。</p>
-<p>可以用递归或二叉树解决。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="built_in">string</span> val;</div><div class="line">    <span class="keyword">int</span> left;</div><div class="line">    <span class="keyword">int</span> right;</div><div class="line">    node(<span class="built_in">string</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        val = v;</div><div class="line">        left = l;</div><div class="line">        right = r;</div><div class="line">    &#125;;</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">        <span class="built_in">queue</span>&lt;node*&gt; q;</div><div class="line">        q.push(<span class="keyword">new</span> node(<span class="string">"("</span>, n - <span class="number">1</span>, n - <span class="number">1</span>));</div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            node* cur = q.front();</div><div class="line">            <span class="keyword">if</span> (cur-&gt;left == <span class="number">0</span> &amp;&amp; cur-&gt;right == <span class="number">0</span>) &#123;</div><div class="line">                ans.push_back(cur-&gt;val + <span class="string">")"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (cur-&gt;left != <span class="number">0</span>)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">"("</span>, cur-&gt;left - <span class="number">1</span>, cur-&gt;right));</div><div class="line">                <span class="keyword">if</span> (cur-&gt;right != <span class="number">0</span> &amp;&amp; cur-&gt;right &gt;= cur-&gt;left)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">")"</span>, cur-&gt;left, cur-&gt;right - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">delete</span> cur;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
           
         
@@ -564,6 +566,131 @@
 <p><code>1,2,3</code> → <code>1,3,2</code><br><code>3,2,1</code> → <code>1,2,3</code><br><code>1,1,5</code> → <code>1,5,1</code></p>
 <p>首先，先找到所有比其下一位数小的数中，最靠右的。如果这种数不存在，则说明所有数是降序的，则只需要简单将数组逆序排列即可。如果找到了这样的数，再找出比这个数大的数中，最靠右的，与该数交换位置，然后把原数所在位置之后的所有数逆序排列即可。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> k = <span class="number">-1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.size() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] &lt; nums[i + <span class="number">1</span>]) &#123;</div><div class="line">                k = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">if</span> (k == <span class="number">-1</span>) &#123;</div><div class="line">            reverse(nums.begin(), nums.end());</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> l = <span class="number">-1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = nums.size() - <span class="number">1</span>; i &gt; k; i--) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[k]) &#123;</div><div class="line">                l = i;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125; </div><div class="line">        &#125; </div><div class="line">        swap(nums[k], nums[l]);</div><div class="line">        reverse(nums.begin() + k + <span class="number">1</span>, nums.end()); </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/12/10/2017-12-10/" itemprop="url">Leetcode 22. Generate Parentheses</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>For example, given n = 3, a solution set is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &quot;((()))&quot;,</div><div class="line">  &quot;(()())&quot;,</div><div class="line">  &quot;(())()&quot;,</div><div class="line">  &quot;()(())&quot;,</div><div class="line">  &quot;()()()&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>一个搜索问题，注意条件是（1）右括号数量不能多于左括号。（2）最后一个一定左括号，这样可以少搜一层。</p>
+<p>可以用递归或二叉树解决。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="built_in">string</span> val;</div><div class="line">    <span class="keyword">int</span> left;</div><div class="line">    <span class="keyword">int</span> right;</div><div class="line">    node(<span class="built_in">string</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        val = v;</div><div class="line">        left = l;</div><div class="line">        right = r;</div><div class="line">    &#125;;</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">        <span class="built_in">queue</span>&lt;node*&gt; q;</div><div class="line">        q.push(<span class="keyword">new</span> node(<span class="string">"("</span>, n - <span class="number">1</span>, n - <span class="number">1</span>));</div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            node* cur = q.front();</div><div class="line">            <span class="keyword">if</span> (cur-&gt;left == <span class="number">0</span> &amp;&amp; cur-&gt;right == <span class="number">0</span>) &#123;</div><div class="line">                ans.push_back(cur-&gt;val + <span class="string">")"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (cur-&gt;left != <span class="number">0</span>)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">"("</span>, cur-&gt;left - <span class="number">1</span>, cur-&gt;right));</div><div class="line">                <span class="keyword">if</span> (cur-&gt;right != <span class="number">0</span> &amp;&amp; cur-&gt;right &gt;= cur-&gt;left)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">")"</span>, cur-&gt;left, cur-&gt;right - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">delete</span> cur;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
           
         
@@ -1352,130 +1479,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/22/2017-10-22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/10/22/2017-10-22/" itemprop="url">HW5 - LeetCode 18 4Sum</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-22T23:02:09+08:00">
-                2017-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.</p>
-<p><strong>Note:</strong> The solution set must not contain duplicate quadruplets.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">For example, given array S = [1, 0, -1, 0, -2, 2], and target = 0.</div><div class="line"></div><div class="line">A solution set is:</div><div class="line">[</div><div class="line">  [-1,  0, 0, 1],</div><div class="line">  [-2, -1, 1, 2],</div><div class="line">  [-2,  0, 0, 2]</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>这道题最开始想用 DFS，不过答案传递比较麻烦，BFS 也比较难控制。分治法是比较好的解决方案。在给出的 nums 中，先排序，方便之后去重；然后依次循环分解成 3Sum、2Sum 问题解决。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; fourSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num, <span class="keyword">int</span> target) &#123;</div><div class="line">	</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; res;</div><div class="line">	</div><div class="line">		<span class="keyword">if</span> (num.empty())</div><div class="line">			<span class="keyword">return</span> res;</div><div class="line">	</div><div class="line">		<span class="built_in">std</span>::sort(num.begin(), num.end());</div><div class="line">	</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.size(); i++) &#123;</div><div class="line">		</div><div class="line">			<span class="keyword">int</span> target_3 = target - num[i];</div><div class="line">		</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; num.size(); j++) &#123;</div><div class="line">			</div><div class="line">				<span class="keyword">int</span> target_2 = target_3 - num[j];</div><div class="line">			</div><div class="line">				<span class="keyword">int</span> front = j + <span class="number">1</span>;</div><div class="line">				<span class="keyword">int</span> back = num.size() - <span class="number">1</span>;</div><div class="line">			</div><div class="line">				<span class="keyword">while</span> (front &lt; back) &#123;</div><div class="line">				</div><div class="line">					<span class="keyword">int</span> two_sum = num[front] + num[back];</div><div class="line">				</div><div class="line">					<span class="keyword">if</span> (two_sum &lt; target_2)</div><div class="line">                        front++;</div><div class="line">				</div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (two_sum &gt; target_2)</div><div class="line">                        back--;</div><div class="line">				</div><div class="line">					<span class="keyword">else</span> &#123;</div><div class="line">					</div><div class="line">						<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; quadruplet = &#123;num[i], num[j], num[front], num[back]&#125;;</div><div class="line">						res.push_back(quadruplet);</div><div class="line">					</div><div class="line">						<span class="keyword">while</span> (front &lt; back &amp;&amp; num[front] == quadruplet[<span class="number">2</span>]) ++front;</div><div class="line">					</div><div class="line">						<span class="keyword">while</span> (front &lt; back &amp;&amp; num[back] == quadruplet[<span class="number">3</span>]) --back;</div><div class="line">				</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">				<span class="keyword">while</span>(j + <span class="number">1</span> &lt; num.size() &amp;&amp; num[j + <span class="number">1</span>] == num[j]) ++j;</div><div class="line">			&#125;</div><div class="line">		</div><div class="line">			<span class="keyword">while</span> (i + <span class="number">1</span> &lt; num.size() &amp;&amp; num[i + <span class="number">1</span>] == num[i]) ++i;</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">	</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1525,7 +1528,7 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -1571,7 +1574,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
