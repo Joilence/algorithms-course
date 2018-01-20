@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -220,6 +220,506 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2018/01/20/2018-01-20-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2018/01/20/2018-01-20-1/" itemprop="url">布置作业 8.3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T22:02:56+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>8.3 吝啬 SAT 问题是这样的：给定一组子句（每个子句都是其中文字的析取）和整数 k，求一个最多有 k 个变量为 true 的满足赋值一如果该赋值存在。证明吝啬 SAT 是 NP 完全问题。</p>
+<p>已知 SAT 是 NP 完全的。<br>假设吝啬 SAT 不是 NP 完全的，那么一个有 n 个 变量的 SAT 问题有多项式时间的算法，则存在矛盾，所以，吝啬 SAT 是 NP 完全的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2018/01/20/2018-01-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2018/01/20/2018-01-20/" itemprop="url">Leetcode 628. Maximum Product of Three Numbers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T21:59:20+08:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+<p><strong>Example 1:</strong><br>Input: [1,2,3]<br>Output: 6</p>
+<p><strong>Example 2:</strong><br>Input: [1,2,3,4]<br>Output: 24</p>
+<p><strong>Note:</strong><br>The length of the given array will be in range [3,10^4] and all elements are in the range [-1000, 1000].<br>Multiplication of any three numbers in the input won’t exceed the range of 32-bit signed integer.</p>
+<p>此题比较容易出错的地方在于，由于数列中数值可能存在负数，所以简单排序之后取最大的三个数并不能保证为最大积，所以需要再次进行比较。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximumProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        sort(nums.begin(), nums.end());</div><div class="line">        <span class="keyword">int</span> n = nums.size();</div><div class="line">        <span class="keyword">int</span> temp1 = nums[n<span class="number">-1</span>] * nums[n<span class="number">-2</span>] * nums[n<span class="number">-3</span>];</div><div class="line">        <span class="keyword">int</span> temp2 = nums[<span class="number">0</span>] * nums[<span class="number">1</span>] * nums[n<span class="number">-1</span>];</div><div class="line">        <span class="keyword">return</span> temp1 &gt; temp2 ? temp1 : temp2;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2018/01/13/2018-01-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2018/01/13/2018-01-13/" itemprop="url">Leetcode 494. Target Sum</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-13T16:24:10+08:00">
+                2018-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>You are given a list of non-negative integers, a1, a2, …, an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.</p>
+<p>Find out how many ways to assign symbols to make sum of integers equal to target S.</p>
+<p><strong>Example 1:</strong><br>Input: nums is [1, 1, 1, 1, 1], S is 3.<br>Output: 5</p>
+<p><strong>Explanation:</strong><br>-1+1+1+1+1 = 3<br>+1-1+1+1+1 = 3<br>+1+1-1+1+1 = 3<br>+1+1+1-1+1 = 3<br>+1+1+1+1-1 = 3</p>
+<p>There are 5 ways to assign symbols to make the sum of nums be target 3.</p>
+<p><strong>Note:</strong><br>The length of the given array is positive and will not exceed 20.<br>The sum of elements in the given array will not exceed 1000.<br>Your output answer is guaranteed to be fitted in a 32-bit integer.</p>
+<p>先计算数列中所有数形成的最大和，判断目标值是否在范围中。若在范围中，则利用动态规划进行求解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">findTargetSumWays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> S)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> n : nums) sum += n;</div><div class="line">    <span class="keyword">if</span> ((sum + S) &amp; <span class="number">1</span> || S &gt; sum || S &lt; -sum) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> newS = (sum + S) / <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(newS + <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); ++i)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = newS; j &gt;= nums[i]; --j)</div><div class="line">            dp[j] += dp[j - nums[i]];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dp[newS];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2018/01/06/2018-01-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2018/01/06/2018-01-6/" itemprop="url">Leetcode 409. Longest Palindrome</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-06T12:20:22+08:00">
+                2018-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.</p>
+<p>This is case sensitive, for example “Aa” is not considered a palindrome here.</p>
+<p><strong>Note:</strong><br>Assume the length of given string will not exceed 1,010.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: &quot;abccccdd&quot;</div><div class="line">Output: 7</div></pre></td></tr></table></figure>
+<p><strong>Explanation:</strong><br>One longest palindrome that can be built is “dccaccd”, whose length is 7.</p>
+<p>本题要求找出最长回文长度，实际只需要寻找其中数学规律即可，即只能存在一个只出现一次的字母。于是利用 ASCII 码，遍历所有字母，找出其中个数为奇数的字母数量即可，如果存在，就减去奇数字母数量再加一。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> odds = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">'A'</span>; c &lt;= <span class="string">'z'</span>; ++c)</div><div class="line">            odds += count(s.begin(), s.end(), c) &amp; <span class="number">1</span>;</div><div class="line">        <span class="keyword">return</span> s.size() - odds + (odds &gt; <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -263,7 +763,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-31T22:24:24+08:00">
                 2017-12-31
@@ -390,7 +890,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-24T23:44:20+08:00">
                 2017-12-24
@@ -488,6 +988,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonathan Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jonathan's Alogrithms">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/algorithms-course/2017/12/10/2017-12-10/" itemprop="url">Leetcode 22. Generate Parentheses</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>For example, given n = 3, a solution set is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &quot;((()))&quot;,</div><div class="line">  &quot;(()())&quot;,</div><div class="line">  &quot;(())()&quot;,</div><div class="line">  &quot;()(())&quot;,</div><div class="line">  &quot;()()()&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>一个搜索问题，注意条件是（1）右括号数量不能多于左括号。（2）最后一个一定左括号，这样可以少搜一层。</p>
+<p>可以用递归或二叉树解决。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="built_in">string</span> val;</div><div class="line">    <span class="keyword">int</span> left;</div><div class="line">    <span class="keyword">int</span> right;</div><div class="line">    node(<span class="built_in">string</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        val = v;</div><div class="line">        left = l;</div><div class="line">        right = r;</div><div class="line">    &#125;;</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">        <span class="built_in">queue</span>&lt;node*&gt; q;</div><div class="line">        q.push(<span class="keyword">new</span> node(<span class="string">"("</span>, n - <span class="number">1</span>, n - <span class="number">1</span>));</div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            node* cur = q.front();</div><div class="line">            <span class="keyword">if</span> (cur-&gt;left == <span class="number">0</span> &amp;&amp; cur-&gt;right == <span class="number">0</span>) &#123;</div><div class="line">                ans.push_back(cur-&gt;val + <span class="string">")"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (cur-&gt;left != <span class="number">0</span>)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">"("</span>, cur-&gt;left - <span class="number">1</span>, cur-&gt;right));</div><div class="line">                <span class="keyword">if</span> (cur-&gt;right != <span class="number">0</span> &amp;&amp; cur-&gt;right &gt;= cur-&gt;left)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">")"</span>, cur-&gt;left, cur-&gt;right - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">delete</span> cur;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-17/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,7 +1142,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
                 2017-12-10
@@ -614,131 +1239,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/10/2017-12-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/12/10/2017-12-10/" itemprop="url">Leetcode 22. Generate Parentheses</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-10T13:59:20+08:00">
-                2017-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  &quot;((()))&quot;,</div><div class="line">  &quot;(()())&quot;,</div><div class="line">  &quot;(())()&quot;,</div><div class="line">  &quot;()(())&quot;,</div><div class="line">  &quot;()()()&quot;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>一个搜索问题，注意条件是（1）右括号数量不能多于左括号。（2）最后一个一定左括号，这样可以少搜一层。</p>
-<p>可以用递归或二叉树解决。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="built_in">string</span> val;</div><div class="line">    <span class="keyword">int</span> left;</div><div class="line">    <span class="keyword">int</span> right;</div><div class="line">    node(<span class="built_in">string</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> r) &#123;</div><div class="line">        val = v;</div><div class="line">        left = l;</div><div class="line">        right = r;</div><div class="line">    &#125;;</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">        <span class="built_in">queue</span>&lt;node*&gt; q;</div><div class="line">        q.push(<span class="keyword">new</span> node(<span class="string">"("</span>, n - <span class="number">1</span>, n - <span class="number">1</span>));</div><div class="line">        <span class="keyword">while</span> (!q.empty()) &#123;</div><div class="line">            node* cur = q.front();</div><div class="line">            <span class="keyword">if</span> (cur-&gt;left == <span class="number">0</span> &amp;&amp; cur-&gt;right == <span class="number">0</span>) &#123;</div><div class="line">                ans.push_back(cur-&gt;val + <span class="string">")"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (cur-&gt;left != <span class="number">0</span>)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">"("</span>, cur-&gt;left - <span class="number">1</span>, cur-&gt;right));</div><div class="line">                <span class="keyword">if</span> (cur-&gt;right != <span class="number">0</span> &amp;&amp; cur-&gt;right &gt;= cur-&gt;left)</div><div class="line">                    q.push(<span class="keyword">new</span> node(cur-&gt;val + <span class="string">")"</span>, cur-&gt;left, cur-&gt;right - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">            q.pop();</div><div class="line">            <span class="keyword">delete</span> cur;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/12/03/2017-12-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -768,7 +1268,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T10:46:31+08:00">
                 2017-12-03
@@ -895,7 +1395,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-26T23:30:11+08:00">
                 2017-11-26
@@ -980,505 +1480,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/18/2017-11-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/11/18/2017-11-18/" itemprop="url">HW9 - Leetcode 56 Merge Intervals</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-18T21:19:02+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a collection of intervals, merge all overlapping intervals.</p>
-<p>For example,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Given [1,3],[2,6],[8,10],[15,18],</div><div class="line">return [1,6],[8,10],[15,18].</div></pre></td></tr></table></figure>
-<p>Overlap 的条件是，一个的 start 或者 end 在另一个 Interval 范围内。对 Intervals 进行排序后，只需要判断 start 是否在前一个集合的范围内即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Definition for an interval.</span></div><div class="line"><span class="comment"> * struct Interval &#123;</span></div><div class="line"><span class="comment"> *     int start;</span></div><div class="line"><span class="comment"> *     int end;</span></div><div class="line"><span class="comment"> *     Interval() : start(0), end(0) &#123;&#125;</span></div><div class="line"><span class="comment"> *     Interval(int s, int e) : start(s), end(e) &#123;&#125;</span></div><div class="line"><span class="comment"> * &#125;;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;Interval&gt; merge(<span class="built_in">vector</span>&lt;Interval&gt;&amp; intervals) &#123;</div><div class="line">        <span class="keyword">if</span> (intervals.empty()) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;Interval&gt;&#123;&#125;;</div><div class="line">        sort(intervals.begin(), intervals.end(), [](Interval a, Interval b)&#123; <span class="keyword">return</span> a.start &lt; b.start; &#125;);</div><div class="line">        </div><div class="line">        <span class="built_in">vector</span>&lt;Interval&gt; res;</div><div class="line">        res.push_back(intervals[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; intervals.size(); ++i) &#123;</div><div class="line">            <span class="keyword">if</span> (intervals[i].start &gt; res.back().end)</div><div class="line">                res.push_back(intervals[i]);</div><div class="line">            <span class="keyword">else</span></div><div class="line">                res.back().end = max(res.back().end, intervals[i].end);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/11/2017-11-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/11/11/2017-11-11/" itemprop="url">HW8 - Leetcode 3 Longest Substring Without Repeating Characters</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-11T20:32:10+08:00">
-                2017-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a string, find the length of the longest substring without repeating characters.</p>
-<p><strong>Examples:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.</div><div class="line"></div><div class="line">Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.</div><div class="line"></div><div class="line">Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</div></pre></td></tr></table></figure>
-<p>本来想从两边往中间数，遇见重复字母，则选取上次重复字母的下一个标签为 head 或者 tail，如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> head = <span class="number">0</span>, tail = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = s.size() - <span class="number">1</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</div><div class="line">        <span class="keyword">if</span> (seen[s[left] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            head = seen[s[left] - <span class="string">'a'</span>] + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (seen[s[right] - <span class="string">'a'</span>] &gt;= <span class="number">0</span>) &#123;</div><div class="line">            tail = seen[s[right] - <span class="string">'a'</span>] - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        seen[s[left]] += left;</div><div class="line">        seen[s[right]] += right;</div><div class="line">        left += <span class="number">1</span>;</div><div class="line">        right -= <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> tail - head + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是发现重复字母的时候，head 和 tail 应该往左还是往右需要标记，比较难实现，所以只能单向做，最后如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; seen(<span class="number">256</span>, <span class="number">-1</span>);</div><div class="line">    <span class="keyword">int</span> length = <span class="number">0</span>, start = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">        start = max(seen[s[i] - <span class="number">0</span>] + <span class="number">1</span>, start);    <span class="comment">// automatically takes care of -1 case</span></div><div class="line">        seen[s[i] - <span class="number">0</span>] = i;</div><div class="line">        length = max(length, i - start + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/11/04/2017-11-04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/11/04/2017-11-04/" itemprop="url">HW7 - Leetcode 179 Largest Number</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-04T22:11:55+08:00">
-                2017-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a list of non negative integers, arrange them such that they form the largest number.</p>
-<p>For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.</p>
-<p>Note: The result may be very large, so you need to return a string instead of an integer.</p>
-<p>直接转换成字符串比较大小即可解决问题。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;num)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : num)</div><div class="line">            arr.push_back(to_string(i));</div><div class="line">        sort(begin(arr), end(arr), [](<span class="built_in">string</span> &amp;s1, <span class="built_in">string</span> &amp;s2)&#123; <span class="keyword">return</span> s1 + s2 &gt; s2 + s1; &#125;);</div><div class="line">        <span class="built_in">string</span> res;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : arr)</div><div class="line">            res += s;</div><div class="line">        <span class="keyword">while</span> (res[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; res.length() &gt; <span class="number">1</span>)</div><div class="line">            res.erase(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">        <span class="keyword">return</span>  res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="joilence.github.io/algorithms-course/algorithms-course/2017/10/25/2017-10-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonathan Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/algorithms-course/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jonathan's Alogrithms">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/algorithms-course/2017/10/25/2017-10-25/" itemprop="url">HW6 - LeetCode 19 Remove Nth Node From End of List</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T12:02:09+08:00">
-                2017-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Given a linked list, remove the n-th node from the end of list and return its head.</p>
-<p>For example,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</div><div class="line"></div><div class="line">After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.</div></pre></td></tr></table></figure>
-<p><strong>Note:</strong><br>Given n will always be valid.<br>Try to do this in one pass.</p>
-<p>这道题比较简单：由于 n 一定是合法的，所以只要维持两个指针，其之间的距离为 n，当先进行遍历的指针到达尾部，即前一个指针将指向倒数第 n 个位置。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        ListNode *toDel = head, *h = head;</div><div class="line">        <span class="keyword">while</span> (n-- &gt; <span class="number">0</span>) h = h-&gt;next;</div><div class="line">        <span class="keyword">if</span> (h == <span class="literal">NULL</span>) <span class="keyword">return</span> toDel-&gt;next; </div><div class="line">        h = h-&gt;next;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (h != <span class="literal">NULL</span>)&#123;</div><div class="line">            toDel = toDel-&gt;next;</div><div class="line">            h = h-&gt;next;</div><div class="line">        &#125;</div><div class="line">        toDel-&gt;next = toDel-&gt;next-&gt;next; </div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1528,8 +1529,8 @@
             
               <a href="/algorithms-course/archives">
             
-                <span class="site-state-item-count">15</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1584,7 +1585,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
